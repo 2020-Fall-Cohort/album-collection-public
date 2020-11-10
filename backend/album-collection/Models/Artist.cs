@@ -12,4 +12,5 @@ namespace album_collection.Models
         public string Image { get; set; }
         public virtual ICollection<Album> Albums { get; set; }
     }
+
 }
