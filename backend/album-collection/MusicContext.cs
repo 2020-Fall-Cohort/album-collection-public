@@ -56,7 +56,7 @@ namespace album_collection
                 new Artist()
                 {
                     Id = 5,
-                    Name = "Crosby, Stills, Nash & Young",
+                    Name = "The Beach Boys",
                     Image = ""
                 });
 
@@ -114,10 +114,10 @@ namespace album_collection
                  new Album()
                  {
                      Id = 6,
-                     Name = "Déjà Vu",
+                     Name = "Pet Sounds",
                      Image = "",
-                     Description = "The second album by Crosby, Stills & Nash, and their first as a quartet with Neil Young. It was released in March 1970 by Atlantic Records.",
-                     Rating = "10/10",
+                     Description = "The 11th studio album by the American rock band the Beach Boys, released May 16, 1966 on Capitol Records.",
+                     Rating = "11/10",
                      ArtistId = 5,
                  });
 
