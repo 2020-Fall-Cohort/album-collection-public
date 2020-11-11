@@ -29,35 +29,35 @@ namespace album_collection
                 {
                     Id = 1,
                     Name = "Dream Theater",
-                    Image = ""
+                    Image = "DreamTheater.jpg"
                 },
 
                 new Artist()
                 {
                     Id = 2,
                     Name = "Nipsey Hussle",
-                    Image = ""
+                    Image = "NipseyHussle.png"
                 },
 
                 new Artist()
                 {
                     Id = 3,
                     Name = "Big Sean",
-                    Image = ""
+                    Image = "BigSean.jpg"
                 },
 
                 new Artist()
                 {
                     Id = 4,
                     Name = "The Band",
-                    Image = ""
+                    Image = "TheBand.png"
                 },
 
                 new Artist()
                 {
                     Id = 5,
                     Name = "The Beach Boys",
-                    Image = ""
+                    Image = "TheBeachBoys.jpg"
                 });
 
             modelBuilder.Entity<Album>().HasData(
@@ -65,7 +65,7 @@ namespace album_collection
                 {
                     Id = 1,
                     Name = "Metropolis Pt.2: Scenes from a Memory",
-                    Image = "",
+                    Image = "ScenesFromAMemory.jpg",
                     Description = "The fifth studio album and first concept album by American progressive metal band Dream Theater, released on October 26, 1999 through Elektra Records.",
                     Rating = "10/10",
                     PopularTrack = "Fatal Tragedy",
@@ -76,7 +76,7 @@ namespace album_collection
                 {
                     Id = 2,
                     Name = "Distance over Time",
-                    Image = "",
+                    Image = "DistanceOverTime.png",
                     Description = "The fourteenth studio album by American progressive metal band Dream Theater, released on February 22, 2019, and being the band's first release on Inside Out Music.",
                     Rating = "9/10",
                     PopularTrack = "S2N",
@@ -87,7 +87,7 @@ namespace album_collection
                  {
                      Id = 3,
                      Name = "Victory Lap",
-                     Image = "",
+                     Image = "VictoryLap.png",
                      Description = "The debut and only studio album by American rapper Nipsey Hussle.",
                      Rating = "10/10",
                      PopularTrack = "Victory Lap",
@@ -98,7 +98,7 @@ namespace album_collection
                  {
                      Id = 4,
                      Name = "I Decided",
-                     Image = "",
+                     Image = "IDecided.jpg",
                      Description = "The fourth studio album by American rapper Big Sean. It was released on February 3, 2017, through GOOD Music and distributed by Def Jam Recordings.",
                      Rating = "7.5/10",
                      PopularTrack = "Bigger Than Me",
@@ -109,7 +109,7 @@ namespace album_collection
                  {
                      Id = 5,
                      Name = "Music from Big Pink",
-                     Image = "",
+                     Image = "BigPink.jpg",
                      Description = "The debut studio album by the Band. Released in 1968, it employs a distinctive blend of country, rock, folk, classical, R&B, blues, and soul.",
                      Rating = "10/10",
                      PopularTrack = "The Weight",
@@ -120,7 +120,7 @@ namespace album_collection
                  {
                      Id = 6,
                      Name = "Pet Sounds",
-                     Image = "",
+                     Image = "PetSounds.jpg",
                      Description = "The 11th studio album by the American rock band the Beach Boys, released May 16, 1966 on Capitol Records.",
                      Rating = "11/10",
                      PopularTrack = "Wouldn't It Be Nice",
