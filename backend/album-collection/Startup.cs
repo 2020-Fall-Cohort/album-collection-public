@@ -22,6 +22,8 @@ namespace album_collection
             Configuration = configuration;
         }
 
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -31,7 +33,24 @@ namespace album_collection
 
             services.AddDbContext<MusicContext>();
             services.AddScoped<IRepository<Album>, AlbumRepository>();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                builder =>
+                {
+                    builder.WithOrigins("http://localhost:8080",
+                                        "https://localhost:8080")
+                                        .AllowAnyHeader()
+                                        .AllowAnyMethod();
+                    builder.WithOrigins("http://localhost:8081",
+                                        "https://localhost:8081")
+                                        .AllowAnyHeader()
+                                        .AllowAnyMethod();
+                });
+            });
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -40,6 +59,9 @@ namespace album_collection
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // used for asp.net 3.1 cors issue
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseHttpsRedirection();
 

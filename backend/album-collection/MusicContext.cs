@@ -16,8 +16,8 @@ namespace album_collection
         {
             var connectionString = "Server=(localdb)\\mssqllocaldb;Database=MusicDb;Trusted_Connection=True;";
 
-            optionsBuilder.UseSqlServer(connectionString)
-                          .UseLazyLoadingProxies();
+            optionsBuilder.UseSqlServer(connectionString);
+    
 
             base.OnConfiguring(optionsBuilder);
         }

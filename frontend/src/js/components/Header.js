@@ -1,9 +1,9 @@
 export default function Header() {
     return `
     <nav class='nav-header'>
-        <a class='nav-home'>Home</a>
-        <a>Artists</a>
-        <a>Albums</a>
+        <p class='nav-home'>Home</p>
+        <p>Artists</p>
+        <p class='nav-albums'>Albums</p>
     </nav>
     `
 }
