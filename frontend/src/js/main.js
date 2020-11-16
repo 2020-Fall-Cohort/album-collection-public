@@ -45,7 +45,18 @@ function navArtists() {
         .then(response => response.json())
         .then(artists => {
             appDiv.innerHTML = Artists(artists);
+            artistNameButton();
         })
         .catch(err => console.log(err))
+    })
+}
+
+function artistNameButton() {
+    const artistNameElements = document.querySelectorAll('.artist__name');
+    artistNameElements.forEach(Element => {
+        Element.addEventListener('click', function(){
+            const artistId = element.id;
+            console.log(`click artist id: ${artistId}` )
+        })
     })
 }
