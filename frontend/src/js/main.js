@@ -13,21 +13,21 @@ export default () => {
 
 const appDiv = document.querySelector('.app');
 
-function header(){
+function header() {
     const headerElement = document.querySelector('.header');
     headerElement.innerHTML = Header();
 }
 
-function navHome(){
+function navHome() {
     const homeButton = document.querySelector('.nav-home');
-    homeButton.addEventListener('click', function(){
+    homeButton.addEventListener('click', function () {
         appDiv.innerHTML = Home();
     })
 }
 
 function navAlbums() {
     const albumsButton = document.querySelector('.nav-albums');
-    albumsButton.addEventListener('click', function(){
+    albumsButton.addEventListener('click', function () {
         console.log("click")
         fetch("https://localhost:44313/api/album")
             .then(response => response.json())
@@ -40,23 +40,23 @@ function navAlbums() {
 
 function navArtists() {
     const artistsButton = document.querySelector('.nav-artists');
-    artistsButton.addEventListener('click', function(){
+    artistsButton.addEventListener('click', function () {
         fetch("https://localhost:44313/api/artist")
-        .then(response => response.json())
-        .then(artists => {
-            appDiv.innerHTML = Artists(artists);
-            artistNameButton();
-        })
-        .catch(err => console.log(err))
+            .then(response => response.json())
+            .then(artists => {
+                appDiv.innerHTML = Artists(artists);
+                artistNameButton();
+            })
+            .catch(err => console.log(err))
     })
 }
 
 function artistNameButton() {
     const artistNameElements = document.querySelectorAll('.artist__name');
     artistNameElements.forEach(Element => {
-        Element.addEventListener('click', function(){
+        Element.addEventListener('click', function () {
             const artistId = element.id;
-            console.log(`click artist id: ${artistId}` )
+            console.log(`click artist id: ${artistId}`)
         })
     })
 }
