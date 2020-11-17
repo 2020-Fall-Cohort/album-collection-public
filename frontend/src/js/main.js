@@ -62,8 +62,36 @@ function artistNameButton() {
             .then(response => response.json())
             .then(artist => {
                 appDiv.innerHTML = Artist(artist);
+                artistAddAlbum();
             })
             .catch(err => console.log(err))
         })
     })
 }
+
+function artistAddAlbum(){
+    const artistAddAlbumButton = document.querySelector('.artist-album-submit');
+    artistAddAlbumButton.addEventListener('click', function(){
+        const artistId = artistAddAlbumButton.id;
+        const albumName = event.target.parentElement.querySelector('.artist-album-input').value;
+        console.log(`artist id: ${artistId}, album name: ${albumName}`)
+
+        const requestBody ={
+            Name: albumName,
+            ArtistId: artistId
+        }
+        fetch(`https://localhost:44313/api/album`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestBody)
+        })
+        .then(response => response.json())
+        .then(albums => {
+            appDiv.innerHTML = Albums(albums)
+        })
+        .catch(err => console.log(err))
+    })
+}
+
