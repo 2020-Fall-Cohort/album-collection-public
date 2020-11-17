@@ -2,6 +2,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Albums from './components/Albums';
 import Artists from './components/Artists';
+import Artist from './components/Artist'; 
 
 
 export default () => {
@@ -52,11 +53,17 @@ function navArtists() {
 }
 
 function artistNameButton() {
-    const artistNameElements = document.querySelectorAll('.artist__name');
-    artistNameElements.forEach(Element => {
-        Element.addEventListener('click', function () {
+    const artistNameElements = document.querySelectorAll('.artist-name');
+    artistNameElements.forEach(element => {
+        element.addEventListener('click', function () {
             const artistId = element.id;
             console.log(`click artist id: ${artistId}`)
+            fetch(`https://localhost:44313/api/artist/${artistId}`)
+            .then(response => response.json())
+            .then(artist => {
+                appDiv.innerHTML = Artist(artist);
+            })
+            .catch(err => console.log(err))
         })
     })
 }
