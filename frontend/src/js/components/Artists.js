@@ -5,9 +5,8 @@ export default function Artists(artists) {
             return `
             <hr />
             <img src="../../../images/${artist.image}" />
-            <p>${artist.name}</p>
+            <p class="artist-name" id = "${artist.id}">${artist.name}</p>
             `
         }).join('')}
-    
     `
 }

@@ -2,6 +2,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Albums from './components/Albums';
 import Artists from './components/Artists';
+import Artist from './components/Artist'; 
 
 
 export default () => {
@@ -13,21 +14,21 @@ export default () => {
 
 const appDiv = document.querySelector('.app');
 
-function header(){
+function header() {
     const headerElement = document.querySelector('.header');
     headerElement.innerHTML = Header();
 }
 
-function navHome(){
+function navHome() {
     const homeButton = document.querySelector('.nav-home');
-    homeButton.addEventListener('click', function(){
+    homeButton.addEventListener('click', function () {
         appDiv.innerHTML = Home();
     })
 }
 
 function navAlbums() {
     const albumsButton = document.querySelector('.nav-albums');
-    albumsButton.addEventListener('click', function(){
+    albumsButton.addEventListener('click', function () {
         console.log("click")
         fetch("https://localhost:44313/api/album")
             .then(response => response.json())
@@ -40,12 +41,29 @@ function navAlbums() {
 
 function navArtists() {
     const artistsButton = document.querySelector('.nav-artists');
-    artistsButton.addEventListener('click', function(){
+    artistsButton.addEventListener('click', function () {
         fetch("https://localhost:44313/api/artist")
-        .then(response => response.json())
-        .then(artists => {
-            appDiv.innerHTML = Artists(artists);
+            .then(response => response.json())
+            .then(artists => {
+                appDiv.innerHTML = Artists(artists);
+                artistNameButton();
+            })
+            .catch(err => console.log(err))
+    })
+}
+
+function artistNameButton() {
+    const artistNameElements = document.querySelectorAll('.artist-name');
+    artistNameElements.forEach(element => {
+        element.addEventListener('click', function () {
+            const artistId = element.id;
+            console.log(`click artist id: ${artistId}`)
+            fetch(`https://localhost:44313/api/artist/${artistId}`)
+            .then(response => response.json())
+            .then(artist => {
+                appDiv.innerHTML = Artist(artist);
+            })
+            .catch(err => console.log(err))
         })
-        .catch(err => console.log(err))
     })
 }
