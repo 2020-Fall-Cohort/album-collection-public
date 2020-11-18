@@ -79,7 +79,8 @@ function artistAddAlbum(){
 
         const requestBody ={
             Name: albumName,
-            ArtistId: artistId
+            ArtistId: artistId,
+            Image: "Default.jpg"
         }
         fetch(`https://localhost:44313/api/album`, {
             method: "POST",
