@@ -63,6 +63,7 @@ function artistNameButton() {
             .then(artist => {
                 appDiv.innerHTML = Artist(artist);
                 artistAddAlbum();
+                artistDeleteAlbum();
             })
             .catch(err => console.log(err))
         })
@@ -95,3 +96,23 @@ function artistAddAlbum(){
     })
 }
 
+function artistDeleteAlbum(){
+    const artistDeleteAlbumButtons = document.querySelectorAll('.artist-delete-album');
+    artistDeleteAlbumButtons.forEach(button => {
+        button.addEventListener('click', function(){
+            const albumId = event.target.parentElement.querySelector('.artist-album-id').value;
+            console.log(albumId);
+            fetch(`https://localhost:44313/api/album/${albumId}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(response => response.json())
+            .then(albums => {
+                appDiv.innerHTML = Albums(albums)
+            })
+            .catch(err => console.log(err))
+        })
+    })
+}
