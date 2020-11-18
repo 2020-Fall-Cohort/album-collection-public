@@ -1,0 +1,118 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  background-color: #4056f4;
+}
+
+header {
+  font-family: "Press Start 2P", cursive;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
+  color: #fe5f55;
+}
+
+nav {
+  display: flex;
+  background-color: #ffe66d;
+  justify-content: space-evenly;
+  width: 100%;
+  color: black;
+}
+nav p:hover {
+  color: #fe5f55;
+}
+
+.list-title {
+  padding: 2rem;
+  margin: 0;
+}
+
+.albums,
+.artists {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  width: 75%;
+  margin: auto;
+}
+.album,
+.artist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 20rem;
+  border: 0.5rem solid black;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  background-color: #ffe66d;
+  box-shadow: 0 2rem 3rem #1c3144;
+}
+
+.artist img {
+  width: 10rem;
+  height: auto;
+}
+
+.album img {
+  box-shadow: 0 2rem 3rem #fffffc;
+}
+
+/* Artist Details Page */
+
+.artist-details-image-div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.artist-details-image-div img {
+  margin: auto;
+  max-width: 30%;
+}
+
+.artist-page {
+  padding: 2rem 0;
+}
+
+.artist-delete-album {
+  margin-top: 1rem;
+}
+
+h2 {
+  text-align: center;
+  color: black;
+}
+
+.artist-add-album {
+  display: flex;
+  flex-direction: column;
+  background-color: #45cb85;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 3rem;
+}
+
+input {
+  margin: 0.5rem;
+  width: 20rem;
+}
+
+button {
+  max-width: 10rem;
+}
+
+/* Home */
+.home-img-div {
+  display: flex;
+  justify-content: center;
+}
+
+.home-img-div img {
+  width: 50%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 2rem 3rem #1c3144;
+}
