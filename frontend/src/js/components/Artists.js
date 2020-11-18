@@ -8,5 +8,9 @@ export default function Artists(artists) {
             <p class="artist-name" id = "${artist.id}">${artist.name}</p>
             `
         }).join('')}
+
+
+       
+        
     `
 }
