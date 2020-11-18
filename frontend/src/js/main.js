@@ -2,7 +2,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Albums from './components/Albums';
 import Artists from './components/Artists';
-import Artist from './components/Artist'; 
+import Artist from './components/Artist';
 
 
 export default () => {
@@ -59,27 +59,33 @@ function artistNameButton() {
             const artistId = element.id;
             console.log(`click artist id: ${artistId}`)
             fetch(`https://localhost:44313/api/artist/${artistId}`)
-            .then(response => response.json())
-            .then(artist => {
-                appDiv.innerHTML = Artist(artist);
-                artistAddAlbum();
-                artistDeleteAlbum();
-            })
-            .catch(err => console.log(err))
+                .then(response => response.json())
+                .then(artist => {
+                    appDiv.innerHTML = Artist(artist);
+                    artistAddAlbum();
+                    artistDeleteAlbum();
+                })
+                .catch(err => console.log(err))
         })
     })
 }
 
-function artistAddAlbum(){
+function artistAddAlbum() {
     const artistAddAlbumButton = document.querySelector('.artist-album-submit');
-    artistAddAlbumButton.addEventListener('click', function(){
+    artistAddAlbumButton.addEventListener('click', function () {
         const artistId = artistAddAlbumButton.id;
         const albumName = event.target.parentElement.querySelector('.artist-album-input').value;
+        const albumDescription = event.target.parentElement.querySelector('.artist-album-description-input').value;
+        const albumRating = event.target.parentElement.querySelector('.artist-album-rating-input').value;
+        const albumPopularTrack = event.target.parentElement.querySelector('.artist-album-track-input').value;
         console.log(`artist id: ${artistId}, album name: ${albumName}`)
 
-        const requestBody ={
+        const requestBody = {
             Name: albumName,
+            Description: albumDescription,
             ArtistId: artistId,
+            Rating: albumRating,
+            PopularTrack: albumPopularTrack,
             Image: "Default.jpg"
         }
         fetch(`https://localhost:44313/api/album`, {
@@ -89,18 +95,18 @@ function artistAddAlbum(){
             },
             body: JSON.stringify(requestBody)
         })
-        .then(response => response.json())
-        .then(albums => {
-            appDiv.innerHTML = Albums(albums)
-        })
-        .catch(err => console.log(err))
+            .then(response => response.json())
+            .then(albums => {
+                appDiv.innerHTML = Albums(albums)
+            })
+            .catch(err => console.log(err))
     })
 }
 
-function artistDeleteAlbum(){
+function artistDeleteAlbum() {
     const artistDeleteAlbumButtons = document.querySelectorAll('.artist-delete-album');
     artistDeleteAlbumButtons.forEach(button => {
-        button.addEventListener('click', function(){
+        button.addEventListener('click', function () {
             const albumId = event.target.parentElement.querySelector('.artist-album-id').value;
             console.log(albumId);
             fetch(`https://localhost:44313/api/album/${albumId}`, {
@@ -109,11 +115,11 @@ function artistDeleteAlbum(){
                     "Content-Type": "application/json"
                 }
             })
-            .then(response => response.json())
-            .then(albums => {
-                appDiv.innerHTML = Albums(albums)
-            })
-            .catch(err => console.log(err))
+                .then(response => response.json())
+                .then(albums => {
+                    appDiv.innerHTML = Albums(albums)
+                })
+                .catch(err => console.log(err))
         })
     })
 }

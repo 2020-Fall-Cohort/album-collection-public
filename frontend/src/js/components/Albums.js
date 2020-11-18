@@ -6,7 +6,9 @@ export default function Albums(albums){
             <hr />
             <img src="../../../images/${album.image}" />
             <p><strong>${album.name}</strong> by ${album.artist.name}</p>
-            <p>${album.description}</p>
+            <p><strong>Description:</strong> ${album.description}</p>
+            <p><strong>Rating:</strong> ${album.rating}</p>
+            <p><strong>Popular Track:</strong> ${album.popularTrack}</p>
             `
         }).join("")}
     `
